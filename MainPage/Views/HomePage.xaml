@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MainPage.Views.HomePage"
+             Title="HomePage">
+
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <!-- Display chat messages -->
+            <CollectionView x:Name="messagesList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="{Binding HorizontalOption}">
+                            <Frame BackgroundColor="{Binding BackgroundColor}" CornerRadius="12" Padding="10">
+                                <Label Text="{Binding Text}" HorizontalTextAlignment="Center" TextColor="White"/>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Input and send button -->
+            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="inputEntry" HorizontalOptions="FillAndExpand" Placeholder="Type a message..."/>
+                <Button Text="Send" Clicked="SendButton_Clicked"/>
+            </StackLayout>
+        </VerticalStackLayout>
+ </ContentPage>
